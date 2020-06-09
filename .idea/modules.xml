@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/tovary-react-app.iml" filepath="$PROJECT_DIR$/.idea/tovary-react-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/tovaryrp-react.iml" filepath="$PROJECT_DIR$/.idea/tovaryrp-react.iml" />
     </modules>
   </component>
 </project>
