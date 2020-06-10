@@ -15,7 +15,13 @@ class VillagesPage extends Component {
                 <Switch>
                     <Route
                         path="/villages/:village_id"
-                        render={(props) => <Village {...props} villages={this.props.villages} />}
+                        render={(props) =>
+                            <Village {...props}
+                                     villages={this.props.villages}
+                                     persons={this.props.persons}
+                                     products={this.props.products}
+                            />
+                        }
                     />
                 </Switch>
             </React.Fragment>
@@ -25,7 +31,9 @@ class VillagesPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        villages: state.villagesReducer.villages
+        villages: state.villagesReducer.villages,
+        persons: state.personsReducer.persons,
+        products: state.productsReducer.products
     };
 };
 

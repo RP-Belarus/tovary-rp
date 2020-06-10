@@ -14,9 +14,8 @@ const productsReducer = (state = initialState, action) => {
         case GET_PRODUCTS_BY_VILLAGE_ID:
             state = {
                 ...state,
-                selectedProducts: [{ id: 'prod01', village_id: 'village01', title: 'Мёд - выбран', price: 10 }]
+                selectedProducts: state.products.filter(item => item.village_id === action.payload)
             };
-            console.log(action, state);
             break;
         default:
             return state;
