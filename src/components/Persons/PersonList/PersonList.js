@@ -11,6 +11,7 @@ const personList = props => {
                 personId={person.id}
                 personVillageId={person.village_id}
                 personFullName={person.full_name}
+                personImage={person.image}
             />
         );
     });

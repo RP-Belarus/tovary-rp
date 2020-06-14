@@ -9,10 +9,10 @@ class ProductsPage extends Component {
         return (
             <React.Fragment>
                 <h1>Товары Родовых поместий</h1>
-
                 <ProductList products={this.props.products} />
+
                 <button
-                    onClick={this.props.getProductsByVillageId.bind(this, 'village01')}
+                    onClick={this.props.getProductsByVillageId.bind(this, 'village03')}
                 >Выбрать товары</button>
 
                 <p>Выбрано:</p>

@@ -8,7 +8,10 @@ class PeoplePage extends Component {
         return (
             <React.Fragment>
                 <h1>Люди</h1>
+                <h3>Жители родовых поместий:</h3>
                 <PersonList persons={this.props.persons} />
+                <h3>Друзья жителей родовых поместий:</h3>
+                <p>...</p>
             </React.Fragment>
         );
     }

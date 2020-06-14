@@ -15,6 +15,7 @@ const mainNavigation = props => (
                 <li><NavLink to="/people">Люди</NavLink></li>
                 <li><NavLink to="/products">Товары</NavLink></li>
                 <li><NavLink to="/auth">Вход / Регистрация</NavLink></li>
+                <li><NavLink to="/basket">Корзина</NavLink></li>
             </ul>
         </nav>
     </header>

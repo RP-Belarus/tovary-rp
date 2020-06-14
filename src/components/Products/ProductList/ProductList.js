@@ -11,6 +11,7 @@ const productList = props => {
                 productId={product.id}
                 productTitle={product.title}
                 productPrice={product.price}
+                productImage={product.image}
             />
         );
     });

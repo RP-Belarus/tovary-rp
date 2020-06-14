@@ -5,4 +5,15 @@
     box-shadow: 0 2px 2px #bbb;
     width: 120px;
     padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.person__list-item img {
+    height: 100px;
+}
+
+.person__list-item:hover {
+    transform: scale(1.05);
 }
