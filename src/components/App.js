@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+//import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import MainNavigation from "./Navigation/MainNavigation";
 import MainPage from "../pages/Main";
@@ -14,7 +15,8 @@ import './App.css';
 class App extends Component{
     render(){
         return (
-            <BrowserRouter>
+            //<BrowserRouter>
+            <HashRouter>
                 <React.Fragment>
                     <MainNavigation/>
                     <main className="main-content">
@@ -29,7 +31,8 @@ class App extends Component{
                         </Switch>
                     </main>
                 </React.Fragment>
-            </BrowserRouter>
+            </HashRouter>
+            //</BrowserRouter>
         );
     }
 }
