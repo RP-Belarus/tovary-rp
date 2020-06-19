@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "927afdd40805cb862bd82ebe06e76474",
+    "revision": "b9d8c0e8f18f5c98d6f999dcc57efbd4",
     "url": "/tovary-rp/index.html"
   },
   {
-    "revision": "40e9e8dfb2951ea6509a",
+    "revision": "0fadb0db5cae47f52f91",
     "url": "/tovary-rp/static/css/main.f43ee28a.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tovary-rp/static/js/2.f63fe087.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "40e9e8dfb2951ea6509a",
-    "url": "/tovary-rp/static/js/main.f3c87c1a.chunk.js"
+    "revision": "0fadb0db5cae47f52f91",
+    "url": "/tovary-rp/static/js/main.2feea747.chunk.js"
   },
   {
     "revision": "9ae581aa30b94caa2efa",
