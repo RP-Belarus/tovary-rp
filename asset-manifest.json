@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/tovary-rp/static/css/main.f43ee28a.chunk.css",
-    "main.js": "/tovary-rp/static/js/main.2feea747.chunk.js",
-    "main.js.map": "/tovary-rp/static/js/main.2feea747.chunk.js.map",
+    "main.js": "/tovary-rp/static/js/main.2fb3beb8.chunk.js",
+    "main.js.map": "/tovary-rp/static/js/main.2fb3beb8.chunk.js.map",
     "runtime-main.js": "/tovary-rp/static/js/runtime-main.3de7e9e8.js",
     "runtime-main.js.map": "/tovary-rp/static/js/runtime-main.3de7e9e8.js.map",
     "static/js/2.f63fe087.chunk.js": "/tovary-rp/static/js/2.f63fe087.chunk.js",
     "static/js/2.f63fe087.chunk.js.map": "/tovary-rp/static/js/2.f63fe087.chunk.js.map",
     "index.html": "/tovary-rp/index.html",
-    "precache-manifest.f7a716cff6e24ab94ae615d17abf500b.js": "/tovary-rp/precache-manifest.f7a716cff6e24ab94ae615d17abf500b.js",
+    "precache-manifest.9336a74e2f797c0198f378668a10f65d.js": "/tovary-rp/precache-manifest.9336a74e2f797c0198f378668a10f65d.js",
     "service-worker.js": "/tovary-rp/service-worker.js",
     "static/css/main.f43ee28a.chunk.css.map": "/tovary-rp/static/css/main.f43ee28a.chunk.css.map",
     "static/js/2.f63fe087.chunk.js.LICENSE.txt": "/tovary-rp/static/js/2.f63fe087.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.3de7e9e8.js",
     "static/js/2.f63fe087.chunk.js",
     "static/css/main.f43ee28a.chunk.css",
-    "static/js/main.2feea747.chunk.js"
+    "static/js/main.2fb3beb8.chunk.js"
   ]
 }
