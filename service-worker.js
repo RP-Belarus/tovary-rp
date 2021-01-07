@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/tovary-rp/precache-manifest.9336a74e2f797c0198f378668a10f65d.js"
+  "/tovary-rp/precache-manifest.49281286694b99b4a9877f050f1fa38d.js"
 );
 
 self.addEventListener('message', (event) => {
