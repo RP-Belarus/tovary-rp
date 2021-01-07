@@ -10,7 +10,9 @@ const villageList = props => {
                 {
                     props.villages.map(village => (
                         <li key={village.id}>
-                            <Link to={`/villages/${village.id}`}>{village.village_name}</Link>
+                            <Link to={`/villages/${village.id}`}>
+                                {village.village_name} : {village.coordinates[0]}, {village.coordinates[1]}
+                            </Link>
                         </li>
                     ))
                 }
