@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e52e20f5736b4a36dd6cd15b5a20c344",
+    "revision": "280385a7b215afb25ff215a2c0d244ea",
     "url": "/tovary-rp/index.html"
   },
   {
-    "revision": "6c0b75df54b7178d60ca",
+    "revision": "0485c95d48fbbe2a2838",
     "url": "/tovary-rp/static/css/2.bcddf60d.chunk.css"
   },
   {
-    "revision": "7303ac6ee3a8cd2a65bb",
+    "revision": "f7ec87c37b2749a90ff8",
     "url": "/tovary-rp/static/css/main.f43ee28a.chunk.css"
   },
   {
-    "revision": "6c0b75df54b7178d60ca",
-    "url": "/tovary-rp/static/js/2.393f8de8.chunk.js"
+    "revision": "0485c95d48fbbe2a2838",
+    "url": "/tovary-rp/static/js/2.40e3680e.chunk.js"
   },
   {
     "revision": "0580f66cff7a7b2e7b5c118fd842bcfd",
-    "url": "/tovary-rp/static/js/2.393f8de8.chunk.js.LICENSE.txt"
+    "url": "/tovary-rp/static/js/2.40e3680e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7303ac6ee3a8cd2a65bb",
-    "url": "/tovary-rp/static/js/main.cf2e524e.chunk.js"
+    "revision": "f7ec87c37b2749a90ff8",
+    "url": "/tovary-rp/static/js/main.efc10dfd.chunk.js"
   },
   {
     "revision": "9ae581aa30b94caa2efa",
