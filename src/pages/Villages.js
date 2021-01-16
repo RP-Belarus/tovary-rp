@@ -2,22 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, Switch, Route } from 'react-router-dom';
 
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-
+import VillageMap from '../components/Villages/VillageMap/VillageMap';
 import VillageList from '../components/Villages/VillageList/VillageList';
 import Village from '../components/Villages/Village';
-
-let DefaultIcon = L.icon({
-    iconUrl: icon,
-    shadowUrl: iconShadow,
-    iconAnchor: [13,41],
-    popupAnchor: [1,-33]
-});
-L.Marker.prototype.options.icon = DefaultIcon;
 
 class VillagesPage extends Component {
     render() {
@@ -25,29 +12,7 @@ class VillagesPage extends Component {
             <React.Fragment>
                 <h1>Поселения Родовых поместий</h1>
                 <VillageList villages={this.props.villages} />
-                <MapContainer
-                    center={[54.81975,28.15401]}
-                    zoom={6}
-                    style={{width: '450px', height: '200px'}}
-                >
-                    <TileLayer
-                        url={"https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=iWfINcI6KwDACPPxDmJm"}
-                        attribution={'<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'}
-                    />
-
-                    <Marker position={[53.98224,26.76782]}>
-                        <Popup>Росы</Popup>
-                    </Marker>
-
-                    <Marker position={[55.37060, 30.56975]}>
-                        <Popup>Звон-Гора</Popup>
-                    </Marker>
-
-                    <Marker position={[54.81975, 28.15401]}>
-                        <Popup>Улесье</Popup>
-                    </Marker>
-
-                </MapContainer>
+                <VillageMap villages={this.props.villages} />
                 <hr/>
                 <Switch>
                     <Route
