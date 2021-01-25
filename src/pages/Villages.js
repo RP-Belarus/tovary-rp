@@ -6,14 +6,16 @@ import VillageMap from '../components/Villages/VillageMap/VillageMap';
 import VillageList from '../components/Villages/VillageList/VillageList';
 import Village from '../components/Villages/Village';
 
+import './Pages.css';
+
 class VillagesPage extends Component {
     render() {
         return (
             <React.Fragment>
                 <h1>Поселения Родовых поместий</h1>
-                <VillageList villages={this.props.villages} />
                 <VillageMap villages={this.props.villages} />
-                <hr/>
+                <VillageList villages={this.props.villages} />
+                <hr class="hr"/>
                 <Switch>
                     <Route
                         path="/villages/:village_id"
