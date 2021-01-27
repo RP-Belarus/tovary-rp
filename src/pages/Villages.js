@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import VillageMap from '../components/Villages/VillageMap/VillageMap';
 import VillageList from '../components/Villages/VillageList/VillageList';
@@ -9,13 +9,41 @@ import Village from '../components/Villages/Village';
 import './Pages.css';
 
 class VillagesPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selected_village: '',
+            mapCenter: [54.81975,28.15401]
+        };
+        //const history = useHistory();
+    }
+
+    selectVillage = (village_id, village_coords) => {
+        //alert("You clicked! " + village_id);
+        console.log('Village Coords: ' + village_coords);
+        this.setState({
+            selected_village: village_id,
+            mapCenter: village_coords
+        });
+        console.log('Village Coords State: ' + this.state.mapCenter);
+    };
+
     render() {
         return (
             <React.Fragment>
                 <h1>Поселения Родовых поместий</h1>
-                <VillageMap villages={this.props.villages} />
-                <VillageList villages={this.props.villages} />
-                <hr class="hr"/>
+                <VillageMap
+                    villages={this.props.villages}
+                    selected_village={this.state.selected_village}
+                    map_center={this.state.mapCenter}
+                    click={this.selectVillage}
+                />
+                <VillageList
+                    villages={this.props.villages}
+                    selected_village={this.state.selected_village}
+                    click={this.selectVillage}
+                />
+                <hr className="hr"/>
                 <Switch>
                     <Route
                         path="/villages/:village_id"

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -11,7 +11,7 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 
 import './VillageMap.css';
 
-const villageMap = props => {
+const VillageMap = props => {
 
     // ------  Attribution and Url for Maptiler ----------
     //const attribution = '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';
@@ -29,15 +29,26 @@ const villageMap = props => {
     });
     L.Marker.prototype.options.icon = DefaultIcon;
 
-    // const onMyClick = () => {
-    //     alert("You clicked!..");
+    const mapCenter = props.map_center;
+
+    // To redirect in React-Router
+    const history = useHistory();
+
+    // My marker...
+    // const MyMarker = props => {
+    //     const initMarker = ref => {
+    //         if (ref) {
+    //             ref.leafletElement.openPopup();
+    //         }
+    //     };
+    //     return <Marker ref={initMarker} {...props}/>
     // };
 
     //console.log(props);
     return (
-        <div class="villageMap">
+        <div className="village__map">
         <MapContainer
-            center={[54.81975,28.15401]}
+            center={mapCenter}
             zoom={6}
             style={{width: '450px', height: '200px'}}
             class="villageMap"
@@ -53,8 +64,16 @@ const villageMap = props => {
                     <Marker
                         key={village.id}
                         position={[village.coordinates[0],village.coordinates[1]]}
+                        eventHandlers={{
+                            click: () => {
+                                props.click(village.id, village.coordinates);
+                                history.push(`/villages/${village.id}`); // Redirecting in react-router to Route
+                                //mapCenter = [village.coordinates[0],village.coordinates[1]];
+                            }
+                        }}
                     >
-                        <Popup>{village.village_name}<br/><Link to={`/villages/${village.id}`}>Нажми</Link></Popup>
+                        {/*<Popup><b>{village.village_name}</b></Popup>*/}
+                        <Tooltip offset={[0,-28]}><b>{village.village_name}</b></Tooltip>
                     </Marker>
                 ))
             }
@@ -65,4 +84,4 @@ const villageMap = props => {
     );
 };
 
-export default villageMap;
+export default VillageMap;

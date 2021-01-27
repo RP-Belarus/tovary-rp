@@ -4,14 +4,21 @@ import { Link } from 'react-router-dom';
 
 import './VillageList.css';
 
-const villageList = props => {
+const VillageList = props => {
+    const listItemClass = "village_list-item-active";
+
     return (
-        <div class="villageList">
+        <div className="village__list">
             <ul>
                 {
                     props.villages.map(village => (
-                        <li key={village.id}>
-                            <Link to={`/villages/${village.id}`}>
+                        <li key={village.id} className={(village.id === props.selected_village) ? listItemClass : ''}>
+                            <Link
+                                to={`/villages/${village.id}`}
+                                onClick={() => {
+                                    props.click(village.id, village.coordinates);
+                                }}
+                            >
                                 {village.village_name}
                             </Link>
                         </li>
@@ -22,4 +29,4 @@ const villageList = props => {
     );
 };
 
-export default villageList;
+export default VillageList;
