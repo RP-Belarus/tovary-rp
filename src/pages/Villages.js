@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 
 import VillageMap from '../components/Villages/VillageMap/VillageMap';
 import VillageList from '../components/Villages/VillageList/VillageList';
@@ -18,14 +18,17 @@ class VillagesPage extends Component {
         //const history = useHistory();
     }
 
+
     selectVillage = (village_id, village_coords) => {
         //alert("You clicked! " + village_id);
-        console.log('Village Coords: ' + village_coords);
+        console.log('Village ID: ' + village_id + ', Village Coords: ' + village_coords);
         this.setState({
             selected_village: village_id,
             mapCenter: village_coords
         });
-        console.log('Village Coords State: ' + this.state.mapCenter);
+        console.log('Village ID State: ' + this.state.selected_village +
+                    ', Village Coords State: ' + this.state.mapCenter);
+        this.props.history.push(`/villages/${village_id}`); // Redirecting in react-router to Route
     };
 
     render() {

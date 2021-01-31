@@ -2,7 +2,11 @@
     float: left;
 }
 
-.village_list-item-active * {
+.village__list-item {
+    cursor: pointer;
+}
+
+.village__list-item-active * {
     font-weight: bold;
     color: darkred;
 }

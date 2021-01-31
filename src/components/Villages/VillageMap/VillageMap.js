@@ -32,7 +32,7 @@ const VillageMap = props => {
     const mapCenter = props.map_center;
 
     // To redirect in React-Router
-    const history = useHistory();
+    //const history = useHistory();
 
     // My marker...
     // const MyMarker = props => {
@@ -67,7 +67,7 @@ const VillageMap = props => {
                         eventHandlers={{
                             click: () => {
                                 props.click(village.id, village.coordinates);
-                                history.push(`/villages/${village.id}`); // Redirecting in react-router to Route
+                                //history.push(`/villages/${village.id}`); // Redirecting in react-router to Route
                                 //mapCenter = [village.coordinates[0],village.coordinates[1]];
                             }
                         }}
