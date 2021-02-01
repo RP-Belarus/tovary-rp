@@ -1,6 +1,6 @@
 // См. пример: https://habr.com/ru/post/329996/
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+//import { Link, useHistory } from 'react-router-dom';
 
 import './VillageList.css';
 
@@ -9,7 +9,7 @@ const VillageList = props => {
     const listItemActive = "village__list-item-active";
 
     // To redirect in React-Router
-    const history = useHistory();
+    //const history = useHistory();
 
     return (
         <div className="village__list">

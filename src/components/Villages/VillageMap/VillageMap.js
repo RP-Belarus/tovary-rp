@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 
 import { MapContainer, TileLayer, Marker, Popup, Tooltip, MapConsumer } from 'react-leaflet';
 import L from 'leaflet';
@@ -20,6 +19,7 @@ const VillageMap = props => {
     // ------  Attribution and Url for OpenStreetMap ----------
     const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
     const url ='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    const mapCenter = props.map_center;
 
     const DefaultIcon = L.icon({
         iconUrl: icon,
@@ -28,11 +28,7 @@ const VillageMap = props => {
         popupAnchor: [1,-33]
     });
     L.Marker.prototype.options.icon = DefaultIcon;
-
-    const mapCenter = props.map_center;
-
-    // To redirect in React-Router
-    //const history = useHistory();
+    // См. как сделать Popup на Маркере:  https://stackoverflow.com/questions/56633263/open-pop-up-on-click-outside-of-map
 
     return (
         <div className="village__map">
