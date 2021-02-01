@@ -20,16 +20,6 @@ const VillageList = props => {
                             key={village.id}
                             className={(village.id === props.selected_village) ? listItemActive : listItem}
                         >
-                            {/*<Link*/}
-                                {/*onClick={(e) => {*/}
-                                    {/*e.preventDefault();*/}
-                                    {/*history.push(`/villages/${village.id}`);*/}
-                                {/*}}*/}
-                                {/*// to={`/villages/${village.id}`}*/}
-                                {/*to={'#'}*/}
-                            {/*>*/}
-                                {/*{village.village_name}*/}
-                            {/*</Link>*/}
                             <div
                                 onClick={(e) => {
                                     props.click(village.id, village.coordinates);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Tooltip, MapConsumer } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -34,17 +34,6 @@ const VillageMap = props => {
     // To redirect in React-Router
     //const history = useHistory();
 
-    // My marker...
-    // const MyMarker = props => {
-    //     const initMarker = ref => {
-    //         if (ref) {
-    //             ref.leafletElement.openPopup();
-    //         }
-    //     };
-    //     return <Marker ref={initMarker} {...props}/>
-    // };
-
-    //console.log(props);
     return (
         <div className="village__map">
         <MapContainer
@@ -59,25 +48,32 @@ const VillageMap = props => {
             />
 
             <MarkerClusterGroup>
-            {
-                props.villages.map(village => (
-                    <Marker
-                        key={village.id}
-                        position={[village.coordinates[0],village.coordinates[1]]}
-                        eventHandlers={{
-                            click: () => {
-                                props.click(village.id, village.coordinates);
-                                //history.push(`/villages/${village.id}`); // Redirecting in react-router to Route
-                                //mapCenter = [village.coordinates[0],village.coordinates[1]];
-                            }
-                        }}
-                    >
-                        {/*<Popup><b>{village.village_name}</b></Popup>*/}
-                        <Tooltip offset={[0,-28]}><b>{village.village_name}</b></Tooltip>
-                    </Marker>
-                ))
-            }
+                {
+                    props.villages.map(village => (
+                        <Marker
+                            key={village.id}
+                            position={[village.coordinates[0], village.coordinates[1]]}
+                            eventHandlers={{
+                                click: () => {
+                                    props.click(village.id, village.coordinates);
+                                }
+                            }}
+                        >
+                            <Popup><b>{village.village_name}</b></Popup>
+                            {/*<Tooltip offset={[0,-28]}><b>{village.village_name}</b></Tooltip>*/}
+                        </Marker>
+                    ))
+                }
             </MarkerClusterGroup>
+
+            <MapConsumer>
+                {
+                    (map) => {
+                        map.flyTo(props.map_center);
+                        return null;
+                    }
+                }
+            </MapConsumer>
 
         </MapContainer>
         </div>
