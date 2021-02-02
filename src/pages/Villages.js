@@ -12,20 +12,18 @@ class VillagesPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selected_village: '',
+            selectedVillageId: '',
             mapCenter: [54.81975,28.15401]
         };
         //const history = useHistory();
     }
 
-
-    selectVillage = (village_id, village_coords) => {
-        //console.log('Village ID: ' + village_id + ', Village Coords: ' + village_coords);
+    handleVillageClick = (village_id) => {
+        const village_coords = this.props.villages.find(village => village.id === village_id).coordinates;
         this.setState({
-            selected_village: village_id,
+            selectedVillageId: village_id,
             mapCenter: village_coords
         });
-        // console.log('Village ID State: ' + this.state.selected_village + ', Village Coords State: ' + this.state.mapCenter);
         this.props.history.push(`/villages/${village_id}`); // Redirecting in react-router to Route
     };
 
@@ -35,14 +33,14 @@ class VillagesPage extends Component {
                 <h1>Поселения Родовых поместий</h1>
                 <VillageMap
                     villages={this.props.villages}
-                    selected_village={this.state.selected_village}
-                    map_center={this.state.mapCenter}
-                    click={this.selectVillage}
+                    selectedVillageId={this.state.selectedVillageId}
+                    mapCenter={this.state.mapCenter}
+                    onVillageClick={this.handleVillageClick}
                 />
                 <VillageList
                     villages={this.props.villages}
-                    selected_village={this.state.selected_village}
-                    click={this.selectVillage}
+                    selectedVillageId={this.state.selectedVillageId}
+                    onVillageClick={this.handleVillageClick}
                 />
                 <hr className="hr"/>
                 <Switch>

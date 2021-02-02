@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { MapContainer, TileLayer, Marker, Popup, Tooltip, MapConsumer } from 'react-leaflet';
 import L from 'leaflet';
@@ -10,6 +10,40 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 
 import './VillageMap.css';
 
+const VillageMarker = props => {
+    // См. как сделать Popup на Маркере:  https://stackoverflow.com/questions/56633263/open-pop-up-on-click-outside-of-map
+    const DefaultIcon = L.icon({
+        iconUrl: icon,
+        shadowUrl: iconShadow,
+        iconAnchor: [13,41],
+        popupAnchor: [1,-33]
+    });
+    L.Marker.prototype.options.icon = DefaultIcon;
+
+    const markerRef = useRef(null);
+    const { village, openPopup } = props;
+
+    useEffect(() => {
+        //if (openPopup) markerRef.current.leafletElement.openPopup();
+        if (openPopup) markerRef.current.openPopup();
+    }, [openPopup]);
+
+    return (
+        <Marker
+            ref={markerRef}
+            position={village.coordinates}
+            eventHandlers={{
+                click: () => {
+                    props.onVillageClick(village.id);
+                }
+            }}
+        >
+            <Popup><b>{village.village_name}</b></Popup>
+            {/*<Tooltip offset={[0,-28]}><b>{village.village_name}</b></Tooltip>*/}
+        </Marker>
+    );
+};
+
 const VillageMap = props => {
 
     // ------  Attribution and Url for Maptiler ----------
@@ -19,16 +53,7 @@ const VillageMap = props => {
     // ------  Attribution and Url for OpenStreetMap ----------
     const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
     const url ='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    const mapCenter = props.map_center;
-
-    const DefaultIcon = L.icon({
-        iconUrl: icon,
-        shadowUrl: iconShadow,
-        iconAnchor: [13,41],
-        popupAnchor: [1,-33]
-    });
-    L.Marker.prototype.options.icon = DefaultIcon;
-    // См. как сделать Popup на Маркере:  https://stackoverflow.com/questions/56633263/open-pop-up-on-click-outside-of-map
+    const mapCenter = props.mapCenter;
 
     return (
         <div className="village__map">
@@ -46,18 +71,12 @@ const VillageMap = props => {
             <MarkerClusterGroup>
                 {
                     props.villages.map(village => (
-                        <Marker
+                        <VillageMarker
                             key={village.id}
-                            position={[village.coordinates[0], village.coordinates[1]]}
-                            eventHandlers={{
-                                click: () => {
-                                    props.click(village.id, village.coordinates);
-                                }
-                            }}
-                        >
-                            <Popup><b>{village.village_name}</b></Popup>
-                            {/*<Tooltip offset={[0,-28]}><b>{village.village_name}</b></Tooltip>*/}
-                        </Marker>
+                            village={village}
+                            openPopup={props.selectedVillageId === village.id}
+                            onVillageClick={props.onVillageClick}
+                        />
                     ))
                 }
             </MarkerClusterGroup>
@@ -65,7 +84,7 @@ const VillageMap = props => {
             <MapConsumer>
                 {
                     (map) => {
-                        map.flyTo(props.map_center);
+                        map.flyTo(props.mapCenter);
                         return null;
                     }
                 }
