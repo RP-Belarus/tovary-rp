@@ -32,6 +32,7 @@ class VillagesPage extends Component {
             <React.Fragment>
                 <h1>Поселения Родовых поместий</h1>
                 <VillageMap
+                    map={this.map}
                     villages={this.props.villages}
                     selectedVillageId={this.state.selectedVillageId}
                     mapCenter={this.state.mapCenter}

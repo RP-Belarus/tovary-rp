@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-import { MapContainer, TileLayer, Marker, Popup, Tooltip, MapConsumer } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Tooltip, MapConsumer, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -11,19 +11,33 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import './VillageMap.css';
 
 const VillageMarker = props => {
+
     // См. как сделать Popup на Маркере:  https://stackoverflow.com/questions/56633263/open-pop-up-on-click-outside-of-map
-    const DefaultIcon = L.icon({
+    const defaultIcon = L.icon({
         iconUrl: icon,
         shadowUrl: iconShadow,
         iconAnchor: [13,41],
         popupAnchor: [1,-33]
     });
-    L.Marker.prototype.options.icon = DefaultIcon;
+    // См. как сделать разные цветные маркеры: https://github.com/pointhi/leaflet-color-markers
+    const greenIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+    L.Marker.prototype.options.icon = defaultIcon;
+    //L.Marker.prototype.options.icon = greenIcon;
+
+    const map = useMap();
 
     const markerRef = useRef(null);
     const { village, openPopup } = props;
 
     useEffect(() => {
+        map.flyTo(props.mapCenter);
         //if (openPopup) markerRef.current.leafletElement.openPopup();
         if (openPopup) markerRef.current.openPopup();
     }, [openPopup]);
@@ -35,6 +49,7 @@ const VillageMarker = props => {
             eventHandlers={{
                 click: () => {
                     props.onVillageClick(village.id);
+                    //props.map.flyTo(village.coordinates);
                 }
             }}
         >
@@ -43,6 +58,7 @@ const VillageMarker = props => {
         </Marker>
     );
 };
+
 
 const VillageMap = props => {
 
@@ -54,6 +70,8 @@ const VillageMap = props => {
     const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
     const url ='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     const mapCenter = props.mapCenter;
+
+    //const map = useMap();
 
     return (
         <div className="village__map">
@@ -72,24 +90,16 @@ const VillageMap = props => {
                 {
                     props.villages.map(village => (
                         <VillageMarker
+                            //map={map}
                             key={village.id}
                             village={village}
+                            mapCenter={mapCenter}
                             openPopup={props.selectedVillageId === village.id}
                             onVillageClick={props.onVillageClick}
                         />
                     ))
                 }
             </MarkerClusterGroup>
-
-            <MapConsumer>
-                {
-                    (map) => {
-                        map.flyTo(props.mapCenter);
-                        return null;
-                    }
-                }
-            </MapConsumer>
-
         </MapContainer>
         </div>
     );
