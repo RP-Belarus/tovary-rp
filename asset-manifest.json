@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/tovary-rp/static/css/main.00e68adb.chunk.css",
-    "main.js": "/tovary-rp/static/js/main.d29fa953.chunk.js",
-    "main.js.map": "/tovary-rp/static/js/main.d29fa953.chunk.js.map",
+    "main.js": "/tovary-rp/static/js/main.1eb6863f.chunk.js",
+    "main.js.map": "/tovary-rp/static/js/main.1eb6863f.chunk.js.map",
     "runtime-main.js": "/tovary-rp/static/js/runtime-main.3de7e9e8.js",
     "runtime-main.js.map": "/tovary-rp/static/js/runtime-main.3de7e9e8.js.map",
     "static/css/2.c81d5d10.chunk.css": "/tovary-rp/static/css/2.c81d5d10.chunk.css",
-    "static/js/2.3a7f1a53.chunk.js": "/tovary-rp/static/js/2.3a7f1a53.chunk.js",
-    "static/js/2.3a7f1a53.chunk.js.map": "/tovary-rp/static/js/2.3a7f1a53.chunk.js.map",
+    "static/js/2.39e0e25a.chunk.js": "/tovary-rp/static/js/2.39e0e25a.chunk.js",
+    "static/js/2.39e0e25a.chunk.js.map": "/tovary-rp/static/js/2.39e0e25a.chunk.js.map",
     "index.html": "/tovary-rp/index.html",
-    "precache-manifest.87be220bea13cc49123e9d7e329dc97f.js": "/tovary-rp/precache-manifest.87be220bea13cc49123e9d7e329dc97f.js",
+    "precache-manifest.98853f9d1ac469a41ccf095455a0ee8f.js": "/tovary-rp/precache-manifest.98853f9d1ac469a41ccf095455a0ee8f.js",
     "service-worker.js": "/tovary-rp/service-worker.js",
     "static/css/2.c81d5d10.chunk.css.map": "/tovary-rp/static/css/2.c81d5d10.chunk.css.map",
     "static/css/main.00e68adb.chunk.css.map": "/tovary-rp/static/css/main.00e68adb.chunk.css.map",
-    "static/js/2.3a7f1a53.chunk.js.LICENSE.txt": "/tovary-rp/static/js/2.3a7f1a53.chunk.js.LICENSE.txt"
+    "static/js/2.39e0e25a.chunk.js.LICENSE.txt": "/tovary-rp/static/js/2.39e0e25a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3de7e9e8.js",
     "static/css/2.c81d5d10.chunk.css",
-    "static/js/2.3a7f1a53.chunk.js",
+    "static/js/2.39e0e25a.chunk.js",
     "static/css/main.00e68adb.chunk.css",
-    "static/js/main.d29fa953.chunk.js"
+    "static/js/main.1eb6863f.chunk.js"
   ]
 }
