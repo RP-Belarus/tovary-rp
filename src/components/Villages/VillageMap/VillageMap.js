@@ -38,7 +38,9 @@ const VillageMarker = props => {
 
     useEffect(() => {
         map.flyTo(props.mapCenter);
-        //if (openPopup) markerRef.current.leafletElement.openPopup();
+        // map.on('moveend', () => {
+        //     console.log('arrived');
+        // });
         if (openPopup) markerRef.current.openPopup();
     }, [openPopup]);
 
